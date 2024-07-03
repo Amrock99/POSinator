@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 
-const CodeEditor = () => {
+const CodeEditor = ({ onRun }) => {
   const [code, setCode] = useState("// Write your code here");
   const [formattedCode, setFormattedCode] = useState("");
 
   const handleFormat = () => {
-    // Simple formatting logic (indents each line)
-    const formatted = code
-      .split("\n")
-      .map((line) => "  " + line.trim())
-      .join("\n");
+    let formatted = code;
+
+    try {
+      // Remove both forward and backward slashes from JSON-like strings
+      formatted = code.replace(/\\/g, "").replace(/\//g, "");
+    } catch (error) {
+      console.error("Error processing code:", error);
+    }
+
     setFormattedCode(formatted);
   };
 
+  const handleRun = () => {
+    onRun(code);
+  };
+
   return (
-    <div>
-      <button onClick={handleFormat}>Format Code</button>
+    <div className="code-editor">
       <h2>Code Editor</h2>
       <textarea
         value={code}
@@ -24,7 +31,8 @@ const CodeEditor = () => {
         cols="50"
       />
       <br />
-
+      <button onClick={handleFormat}>Format Code</button>
+      <button onClick={handleRun}>Run Code</button>
       <h3>Formatted Code Output:</h3>
       <pre>{formattedCode}</pre>
     </div>

@@ -14,7 +14,7 @@ const Emulator = ({ code }) => {
   };
 
   return (
-    <div>
+    <div className="emulator">
       <h2>Emulator Output</h2>
       <button onClick={runCode}>Run Code</button>
       <pre>{output}</pre>
