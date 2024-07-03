@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.editor-container {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.emulator-container {
+  width: 300px; /* Set the fixed width of the emulator */
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-editor {
+  display: flex;
+  flex-direction: column;
+}
+
+.formatted-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
