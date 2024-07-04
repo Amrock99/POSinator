@@ -82,13 +82,49 @@ const Emulator = ({ data }) => {
                 justifyContent: "center",
               }}
             >
-              {screens[index].widgets.map((widget, i) => (
-                <Button
-                  key={i}
-                  title={widget["label-text"] ?? widget.value}
-                  style={{ marginBottom: "10px" }}
-                />
-              ))}
+              {screens[index].widgets.map((widget, i) => {
+                if (widget.type === "BUTTON") {
+                  return (
+                    <Button
+                      key={i}
+                      title={widget["label-text"] ?? widget.value}
+                      style={{ marginBottom: "10px" }}
+                    />
+                  );
+                } else if (widget.type === "LABEL-INPUT") {
+                  return (
+                    <div
+                      style={{
+                        width: "100%",
+                        margin: "8px 4px",
+                      }}
+                    >
+                      <input
+                        style={{
+                          width: "100%",
+                          padding: "8px",
+                          border: "1px solid lightgrey",
+                        }}
+                        placeholder={widget["label-text"]}
+                      />
+                    </div>
+                  );
+                } else if (widget.type === "LABEL-LABEL") {
+                  return (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <h4>{`${widget["text-left"]}`}</h4>
+                      <h4>{`${widget["text-right"]}`}</h4>
+                    </div>
+                  );
+                } else return "";
+              })}
             </div>
             <div
               style={{
