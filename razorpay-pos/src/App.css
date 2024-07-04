@@ -1,4 +1,4 @@
-
+/*
 .body {
   font-family: Arial, sans-serif;
   background-color: #e7e4e4;
@@ -103,11 +103,224 @@ textarea {
 
 .android-emulator {
   position: relative;
-  width: 100%; /* Width of the emulator */
+  width: 100%; //width of the emulator
   background-color: #ffffff;
   border-radius: 36px;
   box-shadow: 0 0 10px rgba(245, 244, 244, 0.1);
   overflow: hidden;
+}
+
+.emulator-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.time {
+  font-size: 14px;
+}
+
+.battery {
+  font-size: 16px;
+}
+
+.app-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #444;
+  color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.home-button {
+  width: 60px;
+  height: 60px;
+  background-color: #444;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.android-frame {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  background-color: #fffefe;
+}
+
+.android-frame-content {
+  position: center;
+}
+*/
+
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #e7e4e4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.left-panel,
+.right-panel {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add some space between panels */
+}
+
+.left-panel {
+  flex: 2;
+  margin-right: 20px;
+  min-width: 300px; /* Ensure minimum width for small screens */
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px; /* Ensure minimum width for small screens */
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  background-color: #e9e7e7;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #2c91fe;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  margin: 10px 0;
+  background-color: #2c91fe;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.toggle-button {
+  background-color: #2c91fe;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  height: 400px;
+  background-color: #e9e7e7;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  color: black;
+}
+
+.dropdown,
+.button-color,
+.background-color {
+  margin: 10px 0;
+  width: 200px;
+  height: 50px;
+  background-color: #e9e7e7;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.right-panel .button {
+  width: 80%;
+  margin: 10px 0;
+  background-color: #e9e7e7;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+}
+
+/* .emulator {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+} */
+.emulator {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .android-emulator {
+  position: relative;
+  width: 100%; 
+  padding-top: 200%; 
+  background-size: cover;
+  background-position: center;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(245, 244, 244, 0.1);
+  overflow: hidden;
+} */
+.android-emulator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .emulator-screen {
