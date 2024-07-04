@@ -103,10 +103,8 @@ textarea {
 
 .android-emulator {
   position: relative;
-  width: 375px; /* Width of the emulator */
-  height: 667px; /* Height of the emulator */
+  width: 100%; /* Width of the emulator */
   background-color: #ffffff;
-  border: 16px solid #000;
   border-radius: 36px;
   box-shadow: 0 0 10px rgba(245, 244, 244, 0.1);
   overflow: hidden;

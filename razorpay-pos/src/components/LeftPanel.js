@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactJson from "react-json-view";
 
 const LeftPanel = ({ setData }) => {
   const [jsonInput, setJsonInput] = useState("");
@@ -38,11 +39,11 @@ const LeftPanel = ({ setData }) => {
       <input type="text" placeholder="User" />
       <input type="password" placeholder="Password" />
       <h3>Formatted JSON Output:</h3>
-      <textarea
-        value={formattedJson}
-        readOnly
-        placeholder="Formatted JSON will appear here"
-      />
+      {formattedJson === "" ? (
+        ""
+      ) : (
+        <ReactJson src={JSON.parse(formattedJson)} />
+      )}
     </div>
   );
 };

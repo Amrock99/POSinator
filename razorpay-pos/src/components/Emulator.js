@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Layout from "../assets/A50-03.png";
 
 const Button = ({ title, onClick, style }) => {
   return (
@@ -28,7 +29,17 @@ const Emulator = ({ data }) => {
 
   return (
     <div className="emulator">
-      <div className="android-emulator">
+      <div
+        className="android-emulator"
+        style={{
+          backgroundImage: `url("${Layout}")`,
+          backgroundSize: "cover",
+          height: "75%",
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
         {screens.length === 0 ? (
           <div
             style={{
@@ -42,7 +53,12 @@ const Emulator = ({ data }) => {
           </div>
         ) : (
           <div
-            style={{ display: "flex", flexDirection: "column", height: "100%" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              height: "75%",
+              padding: "50px 20px",
+            }}
           >
             <div
               style={{
@@ -51,9 +67,9 @@ const Emulator = ({ data }) => {
               }}
             >
               {/* Title */}
-              <h1 style={{ textAlign: "center" }}>
+              <h2 style={{ textAlign: "center" }}>
                 {screens[index]["heading-text"]}
-              </h1>
+              </h2>
               {/* Buttons */}
               <div
                 style={{
@@ -78,13 +94,19 @@ const Emulator = ({ data }) => {
               <Button
                 title={"Back"}
                 onClick={handleBack}
-                style={{ cursor: index === 0 ? "no-drop" : "pointer" }}
+                style={{
+                  cursor: index === 0 ? "no-drop" : "pointer",
+                  width: "120px",
+                  padding: "8px",
+                }}
               />
               <Button
                 title={"Next"}
                 onClick={handleNext}
                 style={{
                   cursor: index === screens.length - 1 ? "no-drop" : "pointer",
+                  width: "120px",
+                  padding: "8px",
                 }}
               />
             </div>
