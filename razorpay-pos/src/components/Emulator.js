@@ -104,6 +104,7 @@ const Emulator = ({ data }) => {
                           width: "100%",
                           padding: "8px",
                           border: "1px solid lightgrey",
+                          borderRadius: "6px",
                         }}
                         placeholder={widget["label-text"]}
                       />
