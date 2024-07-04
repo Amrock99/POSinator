@@ -25,12 +25,6 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig }) => {
       <button style={{ cursor: "pointer" }}>
         <label for="csv">Upload CSV</label>
       </button>
-      {/* <input type="file" id="selectedFile" style={{ display: "none" }} />
-        <input
-          type="button"
-          value="Browse..."
-          onclick="document.getElementById('selectedFile').click();"
-        /> */}
       <br />
       <button>Get Config</button>
       <div>

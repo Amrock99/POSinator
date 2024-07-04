@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../assets/A50-03.png";
+import Layout2 from "../assets/A910.png";
+import Select from "react-select";
 
 const Button = ({ title, onClick, style }) => {
   return (
@@ -12,6 +14,12 @@ const Button = ({ title, onClick, style }) => {
 const Emulator = ({ data }) => {
   const [screens, setScreens] = useState([]);
   const [index, setIndex] = useState(0);
+  const [layoutIndex, setLayoutIndex] = useState(0);
+  const layouts = [Layout, Layout2];
+  const options = [
+    { value: 0, label: "Samsung A50" },
+    { value: 1, label: "Samsung A910" },
+  ];
 
   function handleBack() {
     if (index === 0) return;
@@ -29,10 +37,17 @@ const Emulator = ({ data }) => {
 
   return (
     <div className="emulator">
+      <div style={{ width: "-webkit-fill-available", marginBottom: "16px" }}>
+        <Select
+          options={options}
+          onChange={(v) => setLayoutIndex(v.value)}
+          defaultInputValue={options[layoutIndex].label}
+        />
+      </div>
       <div
         className="android-emulator"
         style={{
-          backgroundImage: `url("${Layout}")`,
+          backgroundImage: `url("${layouts[layoutIndex]}")`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           width: "100%",
