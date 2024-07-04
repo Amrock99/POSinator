@@ -1,104 +1,95 @@
-// import React from "react";
+import React, { useEffect, useState } from "react";
 
-// const Emulator = () => {
-//   return (
-//     <div className="right-panel">
-//       <div className="button">E Chalan</div>
-//       <div className="button">Helmet</div>
-//       <div className="button">Number Plate</div>
-//       <div className="button">Drink n Drive</div>
-//       <div className="button">Pillon Helmet</div>
-//       <button className="button-color">Button Color</button>
-//       <button className="background-color">Background Color</button>
-//     </div>
-//   );
-// };
-
-// export default Emulator;
-
-//Code 2
-// import React from "react";
-
-// const Emulator = () => {
-//   return (
-//     <div className="emulator">
-//       <iframe
-//         title="Emulator"
-//         src="https://www.browserstack.com/app-live"
-//         width="100%"
-//         height="100%"
-//         style={{ border: "none" }}
-//       ></iframe>
-//     </div>
-//   );
-// };
-
-// export default Emulator;
-
-//code 3
-// import React from "react";
-
-// const Emulator = () => {
-//   return (
-//     <div className="emulator">
-//       <div className="emulator-screen">
-//         <div className="status-bar">
-//           <span className="time">12:00</span>
-//           <span className="battery">🔋</span>
-//         </div>
-//         <div className="app-container">
-//           <div className="app-icon">📱</div>
-//           <div className="app-icon">🌐</div>
-//           <div className="app-icon">📞</div>
-//           <div className="app-icon">📧</div>
-//         </div>
-//         <div className="home-button"></div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Emulator;
-
-//code 4
-import React from "react";
-
-const widgets = [
-  {
-    value: "Button 1",
-  },
-  {
-    value: "Button 2",
-  },
-  {
-    value: "Button 3",
-  },
-];
-
-const Button = (widgets) => {
-  return <button>{widgets.value}</button>;
+const Button = ({ title, onClick, style }) => {
+  return (
+    <button style={{ cursor: "pointer", ...style }} onClick={onClick}>
+      {title}
+    </button>
+  );
 };
 
-const Emulator = () => {
+const Emulator = ({ data }) => {
+  const [screens, setScreens] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  function handleBack() {
+    if (index === 0) return;
+    setIndex((index) => (index -= 1));
+  }
+
+  function handleNext() {
+    if (index === screens.length - 1) return;
+    setIndex((index) => (index += 1));
+  }
+
+  useEffect(() => {
+    if (data && data.screens) setScreens(data.screens);
+  }, [data]);
+
   return (
     <div className="emulator">
       <div className="android-emulator">
-        <div className="emulator-screen">
-          <div className="status-bar">
-            <span className="time">12:00</span>
-            <span className="battery">🔋</span>
+        {screens.length === 0 ? (
+          <div
+            style={{
+              display: "flex",
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            No screens
           </div>
-          <div className="app-container">
-            <div className="app-icon">📱</div>
-            <div className="app-icon">🌐</div>
-            <div className="app-icon">📞</div>
-            <div className="app-icon">📧</div>
+        ) : (
+          <div
+            style={{ display: "flex", flexDirection: "column", height: "100%" }}
+          >
+            <div
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
+              {/* Title */}
+              <h1 style={{ textAlign: "center" }}>
+                {screens[index]["heading-text"]}
+              </h1>
+              {/* Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  flex: 1,
+                }}
+              >
+                {screens[index].widgets.map((widget, i) => {
+                  return (
+                    <Button
+                      key={i}
+                      title={widget["label-text"] ?? widget.value}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            {/* Actions */}
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <Button
+                title={"Back"}
+                onClick={handleBack}
+                style={{ cursor: index === 0 ? "no-drop" : "pointer" }}
+              />
+              <Button
+                title={"Next"}
+                onClick={handleNext}
+                style={{
+                  cursor: index === screens.length - 1 ? "no-drop" : "pointer",
+                }}
+              />
+            </div>
           </div>
-          <div className="home-button"></div>
-        </div>
-        <div className="android-frame">
-          <Button />
-        </div>
+        )}
       </div>
     </div>
   );

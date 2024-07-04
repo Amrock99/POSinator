@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LeftPanel = () => {
+const LeftPanel = ({ setData }) => {
   const [jsonInput, setJsonInput] = useState("");
   const [formattedJson, setFormattedJson] = useState("");
 
@@ -9,8 +9,9 @@ const LeftPanel = () => {
       const parsedJson = JSON.parse(jsonInput);
       const beautifiedJson = JSON.stringify(parsedJson, null, 2); // Beautify JSON with 2 spaces indentation
       setFormattedJson(beautifiedJson);
+      setData(parsedJson);
     } catch (error) {
-      setFormattedJson("Invalid JSON");
+      alert("Invalid JSON");
     }
   };
 

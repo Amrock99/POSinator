@@ -1,0 +1,23 @@
+{
+  "screens": [
+    {
+      "id": "0",
+      "heading-text": "Embassy of greece",
+      "widgets": [
+        { "type": "BUTTON", "value": "Visa" },
+        { "type": "BUTTON", "value": "Power Of Attorney" },
+        { "type": "BUTTON", "value": "Certifications" }
+      ]
+    },
+    {
+      "id": "s1",
+      "heading-text": "Customer Details",
+      "widgets": [
+        { "type": "LABEL-INPUT", "label-text": "Customer Name" },
+        { "type": "LABEL-INPUT", "label-text": "Valid passport" },
+        { "type": "LABEL-INPUT", "label-text": "Remarks" },
+        { "type": "BUTTON", "value": "Pay" }
+      ]
+    }
+  ]
+}
