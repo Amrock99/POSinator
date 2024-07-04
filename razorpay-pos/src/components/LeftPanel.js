@@ -21,7 +21,16 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig }) => {
     <div className="left-panel">
       <input type="text" placeholder="UserName" />
       <input type="password" placeholder="Password" />
-      <button>Upload CSV</button>
+      <input id="csv" type="file" style={{ display: "none" }} />
+      <button style={{ cursor: "pointer" }}>
+        <label for="csv">Upload CSV</label>
+      </button>
+      {/* <input type="file" id="selectedFile" style={{ display: "none" }} />
+        <input
+          type="button"
+          value="Browse..."
+          onclick="document.getElementById('selectedFile').click();"
+        /> */}
       <br />
       <button>Get Config</button>
       <div>
