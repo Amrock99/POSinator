@@ -1,3 +1,12 @@
+# Posinator
+## Razorpay <> POS
+
+[![N|Solid](https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)]
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
