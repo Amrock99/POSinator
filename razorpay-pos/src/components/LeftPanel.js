@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ReactJson from "react-json-view";
 
-const LeftPanel = ({ setData, onUploadCSV, onGetConfig }) => {
+const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
   const [jsonInput, setJsonInput] = useState("");
   const [formattedJson, setFormattedJson] = useState("");
 
@@ -19,14 +19,31 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig }) => {
 
   return (
     <div className="left-panel">
-      <input type="text" placeholder="UserName" />
-      <input type="password" placeholder="Password" />
-      <input id="csv" type="file" style={{ display: "none" }} />
-      <button style={{ cursor: "pointer" }}>
-        <label for="csv">Upload CSV</label>
-      </button>
-      <br />
-      <button>Get Config</button>
+      {/* <input type="text" placeholder="UserName" />
+      <input type="password" placeholder="Password" /> */}
+      {/* <div>
+        <input id="csv" type="file" style={{ display: "none" }} />
+        <button style={{ cursor: "pointer" }}>
+          <label for="csv">Upload CSV</label>
+        </button>
+
+        <br />
+        <button onClick={openModal}>Get Config</button>
+      </div> */}
+      <div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input id="csv" type="file" style={{ display: "none" }} />
+          <button style={{ cursor: "pointer", marginRight: "10px" }}>
+            <label htmlFor="csv" style={{ cursor: "pointer" }}>
+              Upload CSV
+            </label>
+          </button>
+          <button onClick={openModal} style={{ cursor: "pointer" }}>
+            Get Config
+          </button>
+        </div>
+      </div>
+
       <div>
         <textarea
           value={jsonInput}

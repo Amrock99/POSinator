@@ -1,0 +1,98 @@
+/* Styles for Emulator and its contents */
+.emulator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.android-emulator {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.android-emulator .content {
+  position: absolute;
+  top: 15%;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.android-emulator .content h2 {
+  text-align: center;
+}
+
+.android-emulator .content input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.android-emulator .content .button {
+  margin-bottom: 10px;
+}
+
+.android-emulator .content .navigation-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.android-emulator .content .navigation-buttons button {
+  width: 120px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+  .android-emulator .content {
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+  }
+
+  .android-emulator .content input {
+    padding: 6px;
+  }
+
+  .android-emulator .content .navigation-buttons button {
+    width: 100px;
+    padding: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .android-emulator .content {
+    top: 5%;
+    width: 90%;
+    height: 85%;
+    padding: 5px;
+  }
+
+  .android-emulator .content input {
+    padding: 4px;
+  }
+
+  .android-emulator .content .navigation-buttons button {
+    width: 80px;
+    padding: 4px;
+  }
+}

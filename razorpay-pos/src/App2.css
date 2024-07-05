@@ -9,22 +9,22 @@
 .container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  /* background: linear-gradient(120deg, #bdc8d2 30%, #4088d5 50%); */
-  background: linear-gradient(120deg, #1765ae 30%, #5ba9fc 50%);
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  background: linear-gradient(120deg, #bdc8d2 30%, #4088d5 50%);
+  /* background: linear-gradient(120deg, #005DB2 30%, #2c91fe 50%); */
 }
 
 .left-panel,
 .right-panel {
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Add some space between panels */
 }
 
 .left-panel {
   flex: 2;
   margin-right: 20px;
-  min-width: 300px;
+  min-width: 300px; /* Ensure minimum width for small screens */
 }
 
 .right-panel {
@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 300px;
+  min-width: 300px; /* Ensure minimum width for small screens */
 }
 
 input[type="text"],
@@ -196,163 +196,3 @@ textarea {
 .android-frame-content {
   position: center;
 }
-
-.emulator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.android-emulator {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.emulator .content {
-  position: absolute;
-  top: 15%;
-  width: 70%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.emulator .content h2 {
-  text-align: center;
-}
-
-.emulator .content input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.emulator .content .button {
-  margin-bottom: 10px;
-}
-
-.left-panel {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.left-panel input,
-.left-panel button,
-.left-panel textarea {
-  margin-bottom: 10px;
-}
-
-.left-panel textarea {
-  height: 200px;
-}
-
-/* code 2  */
-/* @media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .left-panel,
-  .right-panel {
-    margin-right: 0;
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .emulator {
-    width: 100%;
-    height: auto;
-  }
-}
-
-.emulator {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding: 20px; 
-
-.android-emulator {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  max-height: 600px; 
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.android-emulator .content {
-  position: absolute;
-  top: 15%;
-  width: 70%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.android-emulator .content h2 {
-  text-align: center;
-}
-
-.android-emulator .content input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.android-emulator .content .button {
-  margin-bottom: 10px;
-}
-
-@media only screen and (max-width: 480px) {
-  .android-emulator {
-    max-width: 300px;
-    max-height: 500px;
-  }
-
-  .android-emulator .content {
-    top: 10%;
-    width: 80%;
-    height: 80%;
-  }
-
-  .android-emulator .content input {
-    padding: 6px;
-    font-size: 14px;
-  }
-
-  .android-emulator .content .button {
-    padding: 6px;
-  }
-} */

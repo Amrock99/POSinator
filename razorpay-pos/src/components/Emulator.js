@@ -1,3 +1,4 @@
+// code 1
 import React, { useEffect, useState } from "react";
 import Layout from "../assets/A50-03.png";
 import Layout2 from "../assets/A910.png";
@@ -17,8 +18,8 @@ const Emulator = ({ data }) => {
   const [layoutIndex, setLayoutIndex] = useState(0);
   const layouts = [Layout, Layout2];
   const options = [
-    { value: 0, label: "Samsung A50" },
-    { value: 1, label: "Samsung A910" },
+    { value: 0, label: "PAX A50" },
+    { value: 1, label: "PAX A910" },
   ];
 
   function handleBack() {
@@ -175,5 +176,7 @@ const Emulator = ({ data }) => {
     </div>
   );
 };
+
+// export default Emulator;
 
 export default Emulator;
