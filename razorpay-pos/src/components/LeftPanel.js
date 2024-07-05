@@ -1,10 +1,12 @@
 //code
 import React, { useState } from "react";
 import ReactJson from "react-json-view";
+import axios from "axios";
 
 const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
   const [jsonInput, setJsonInput] = useState("");
   const [formattedJson, setFormattedJson] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleToggle = () => {
     try {
@@ -17,22 +19,37 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
     }
   };
 
+  const handleFileChange = async (f) => {
+    const file = f.target.files[0];
+    setSelectedFile(file);
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("text", "4204201231");
+    formData.append("file", "123456Q");
+
+    const response = await axios.post(
+      "https://demo.ezetap.com/api/2.0/ca/app/config/get",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    console.log(`File uploaded successfully: ${response.data}`);
+  };
+
   return (
     <div className="left-panel">
-      {/* <input type="text" placeholder="UserName" />
-      <input type="password" placeholder="Password" /> */}
-      {/* <div>
-        <input id="csv" type="file" style={{ display: "none" }} />
-        <button style={{ cursor: "pointer" }}>
-          <label for="csv">Upload CSV</label>
-        </button>
-
-        <br />
-        <button onClick={openModal}>Get Config</button>
-      </div> */}
       <div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <input id="csv" type="file" style={{ display: "none" }} />
+          <input
+            id="csv"
+            type="file"
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
           <button style={{ cursor: "pointer", marginRight: "10px" }}>
             <label htmlFor="csv" style={{ cursor: "pointer" }}>
               Upload CSV

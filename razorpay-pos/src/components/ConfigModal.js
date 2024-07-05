@@ -16,6 +16,7 @@ const ConfigModal = ({ isOpen, onRequestClose, onSubmit }) => {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Enter Username and Password"
+      ariaHideApp={false}
     >
       <h2>Enter Username and Password</h2>
       <form onSubmit={handleSubmit}>

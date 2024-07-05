@@ -3,10 +3,9 @@ import "./App.css";
 import "./components/LeftPanel";
 import Emulator from "./components/Emulator";
 import LeftPanel from "./components/LeftPanel";
+import axios from "axios";
 
 import ConfigModal from "./components/ConfigModal";
-
-import Modal from "react-modal";
 
 function App() {
   const [data, setData] = useState();
@@ -14,10 +13,28 @@ function App() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const handleConfigSubmit = (username, password) => {
-    console.log("Username:", username);
-    console.log("Password:", password);
-    closeModal();
+  const handleConfigSubmit = async (username, password) => {
+    await handleSubmitReq(username, password);
+    // closeModal();
+  };
+
+  const handleSubmitReq = async (username, password) => {
+    console.log({ username, password });
+    const response = await axios.post(
+      "https://demo.ezetap.com/api/2.0/ca/app/config/get",
+      { username, password },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Cookie:
+            "jsessionid=3bd59052-ca5d-4e08-83de-5091219236ba; jsessionid=b82f8bd0-655c-4cb3-bffc-8fd020f56529",
+        },
+        withCredentials: true,
+        credentials: "include",
+      }
+    );
+    console.log(`File uploaded successfully: ${response.data}`);
   };
 
   return (
