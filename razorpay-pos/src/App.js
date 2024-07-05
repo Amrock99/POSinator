@@ -14,8 +14,8 @@ function App() {
   const closeModal = () => setIsModalOpen(false);
 
   const handleConfigSubmit = async (username, password) => {
-    await handleConfigChange();
-    return;
+    // await handleConfigChange();
+    // return;
     await handleSubmitReq(username, password);
     // closeModal();
   };
@@ -26,6 +26,7 @@ function App() {
       {
         headers: {
           "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "69420",
         },
       }
     );
@@ -35,8 +36,8 @@ function App() {
   const handleSubmitReq = async (username, password) => {
     console.log({ username, password });
     const response = await axios.post(
-      "https://demo.ezetap.com/api/2.0/ca/app/config/get",
-      { username, password },
+      "http://localhost:3001/api",
+      { username: "4204201231", password: "123456Q" },
       {
         headers: {
           "Content-Type": "application/json",
@@ -48,12 +49,14 @@ function App() {
         credentials: "include",
       }
     );
-    console.log(`File uploaded successfully: ${response.data}`);
+    const parsedJson = JSON.parse(response.data.data.config); // Remove slashes and parse
+    setData(parsedJson);
+    closeModal();
   };
 
   return (
     <div className="container">
-      <LeftPanel setData={setData} openModal={openModal} />
+      <LeftPanel setData={setData} data={data} openModal={openModal} />
       <ConfigModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

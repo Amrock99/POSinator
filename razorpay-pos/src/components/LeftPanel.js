@@ -1,9 +1,9 @@
 //code
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactJson from "react-json-view";
 import axios from "axios";
 
-const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
+const LeftPanel = ({ setData, data, openModal }) => {
   const [jsonInput, setJsonInput] = useState("");
   const [formattedJson, setFormattedJson] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
@@ -39,6 +39,14 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
     );
     console.log(`File uploaded successfully: ${response.data}`);
   };
+
+  useEffect(() => {
+    if (data) {
+      const beautifiedJson = JSON.stringify(data, null, 2); // Beautify JSON with 2 spaces indentation
+      setFormattedJson(beautifiedJson);
+      setJsonInput(beautifiedJson);
+    }
+  }, [data]);
 
   return (
     <div className="left-panel">
