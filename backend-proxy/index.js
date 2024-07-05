@@ -1,9 +1,6 @@
 const express = require("express");
-const request = require("request");
 const app = express();
 const { default: axios } = require("axios");
-
-const API_URL = "https://demo.ezetap.com/api/2.0/ca/app/config/get";
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -18,11 +15,10 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.use("/api", async (req, res) => {
-  const url = `${API_URL}${req.url}`;
+app.post("/api", async (req, res) => {
   const response = await axios.post(
     "https://demo.ezetap.com/api/2.0/ca/app/config/get",
-    { username: "4204201231", password: "123456Q" },
+    req.body,
     {
       headers: {
         "Content-Type": "application/json",
@@ -34,9 +30,7 @@ app.use("/api", async (req, res) => {
       credentials: "include",
     }
   );
-  console.lo(response);
-  req.pipe(request(url)).pipe(res);
-  req.send;
+  res.send(response.data);
 });
 
 app.listen(3001, () => {
