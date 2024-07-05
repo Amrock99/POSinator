@@ -29,7 +29,7 @@ const LeftPanel = ({ setData, onUploadCSV, onGetConfig, openModal }) => {
     formData.append("file", "123456Q");
 
     const response = await axios.post(
-      "https://demo.ezetap.com/api/2.0/ca/app/config/get",
+      "https://4c62-121-242-131-242.ngrok-free.app/upload",
       formData,
       {
         headers: {

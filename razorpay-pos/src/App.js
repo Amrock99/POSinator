@@ -14,8 +14,22 @@ function App() {
   const closeModal = () => setIsModalOpen(false);
 
   const handleConfigSubmit = async (username, password) => {
+    await handleConfigChange();
+    return;
     await handleSubmitReq(username, password);
     // closeModal();
+  };
+
+  const handleConfigChange = async (f) => {
+    const response = await axios.get(
+      "https://4c62-121-242-131-242.ngrok-free.app/fetch/file_23c022b13c",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response.data);
   };
 
   const handleSubmitReq = async (username, password) => {
