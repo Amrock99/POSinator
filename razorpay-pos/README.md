@@ -1,7 +1,7 @@
 # Posinator
 ## Razorpay <> POS
 
-[![N|Solid](https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg)](https://razorpay.com/pos)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)]
 
